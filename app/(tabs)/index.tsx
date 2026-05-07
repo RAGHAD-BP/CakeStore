@@ -1,9 +1,5 @@
-import {Button, StatusBar, Text, View ,ActivityIndicator} from 'react-native';
-import { ThemedText } from '@/components/themed-text';
-import { ThemedView } from '@/components/themed-view';
+import {Button, StatusBar, Text, View, ActivityIndicator, StyleSheet, Pressable, ScrollView} from 'react-native';
 import { Image } from 'expo-image';
-import { ScrollView } from 'react-native';
-import { Pressable } from 'react-native';
 import { useState } from 'react';
 import NavTop from '@/components/NavTop';
 
@@ -15,20 +11,31 @@ export default function App() {
         <NavTop name="Sweet Sweet" />
       <ScrollView style={{flex:0.90}}>
         {/* Menu */}
-          <ThemedView style={{width:'100%',height:1000,backgroundColor:'#FFF5D7'}}>
+          <View style={{width:styles.page.width,height:1000,backgroundColor:styles.colors.yellow}}>
         
-          </ThemedView>
+          </View>
         {/* Design Your Cake */}
-          <ThemedView style={{width:'100%',height:500,backgroundColor:'#ffedf5'}}>
-             <Button title="Start" onPress={()=> setIsLoading(!isLoading)} color="#E195AB"  /> 
-              <ActivityIndicator style={{flex:1, justifyContent:'center', alignItems:'center'}} size="large" color="#E195AB" animating={isLoading} />    
-          </ThemedView>
+          <View style={{width:styles.page.width,height:500,backgroundColor:styles.colors.pink}}>
+             <Button title="Start" onPress={()=> setIsLoading(!isLoading)} color={styles.colors.darkPink}  /> 
+              <ActivityIndicator style={{flex:1, justifyContent:'center', alignItems:'center'}} size="large" color={styles.colors.darkPink} animating={isLoading} />    
+          </View>
         {/* social media and another things */}
-        <ThemedView style={{width:'100%',height:250,backgroundColor:'#E195AB'}}>
+        <View style={{width:styles.page.width,height:250,backgroundColor:styles.colors.darkPink}}>
 
-        </ThemedView>
+        </View>
 
       </ScrollView>
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+   page: {
+    width: '100%',
+  },
+   colors: {
+    yellow: '#FFF5D7',
+    pink: '#ffedf5',
+    darkPink: '#E195AB',
+  },
+});
