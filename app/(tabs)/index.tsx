@@ -4,27 +4,29 @@ import { useState } from 'react';
 import NavTop from '@/components/NavTop';
 
 export default function App() {
-  const[isLoading, setIsLoading] = useState(true)
+  const[ isLoading, setIsLoading] = useState(true)
   return (
     <View style={{ flex: 1 }}>
         {/* <StatusBar barStyle={'default'}/>   */}
         <NavTop name="Sweet Sweet" />
       <ScrollView style={{flex:0.90}}>
         {/* Menu */}
-          <View style={{width:styles.page.width,height:1000,backgroundColor:styles.colors.yellow}}>
+          <View style={{width:styles.page.width,height:1000,backgroundColor:colors.yellow}}>
         
           </View>
         {/* Design Your Cake */}
-          <View style={{width:styles.page.width,height:500,backgroundColor:styles.colors.pink}}>
-             <Button title="Start" onPress={()=> setIsLoading(!isLoading)} color={styles.colors.darkPink}  /> 
-              <ActivityIndicator style={{flex:1, justifyContent:'center', alignItems:'center'}} size="large" color={styles.colors.darkPink} animating={isLoading} />    
+          <View style={{width:styles.page.width,height:500,backgroundColor:colors.pink, justifyContent:'center', gap:40, padding:40  }}>
+            <Text style={{fontSize:40, fontWeight:'bold',textAlign:'center' }}>Order</Text>
+             <Text  onPress={()=> setIsLoading(!isLoading)}  style={styles.Button} >Start</Text> 
+              { <ActivityIndicator style={{ alignItems:'center'}} size="large" color={colors.darkPink}  animating={isLoading} />  }
           </View>
         {/* social media and another things */}
-        <View style={{width:styles.page.width,height:250,backgroundColor:styles.colors.darkPink}}>
+        <View style={{width:styles.page.width,height:250,backgroundColor:colors.darkPink}}>
 
         </View>
 
       </ScrollView>
+
     </View>
   );
 }
@@ -33,9 +35,23 @@ const styles = StyleSheet.create({
    page: {
     width: '100%',
   },
-   colors: {
-    yellow: '#FFF5D7',
-    pink: '#ffedf5',
-    darkPink: '#E195AB',
-  },
+  Button: {
+    width: '50%',
+    height: 50,
+    backgroundColor:'#E195AB',
+    textAlign:'center',
+    alignContent:'center',
+    borderRadius: 10,
+    alignSelf:'center',
+    fontSize: 20,
+    color: 'white',
+    fontWeight: 'bold',
+  }
+
 });
+
+const colors = {
+  yellow: '#FFF5D7',
+  pink: '#ffedf5',
+  darkPink: '#E195AB',
+}
