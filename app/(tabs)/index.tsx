@@ -2,6 +2,8 @@ import {Button, StatusBar, Text, View, ActivityIndicator, StyleSheet, Pressable,
 import { Image } from 'expo-image';
 import { useState } from 'react';
 import NavTop from '@/components/NavTop';
+import Menu from '@/app/Menu';
+import About from '@/app/about';
 
 export default function App() {
   const[ isLoading, setIsLoading] = useState(true)
@@ -10,10 +12,9 @@ export default function App() {
         {/* <StatusBar barStyle={'default'}/>   */}
         <NavTop name="Sweet Sweet" />
       <ScrollView style={{flex:0.90}}>
+        <About name="Sweet Sweet" />
         {/* Menu */}
-          <View style={{width:styles.page.width,height:1000,backgroundColor:colors.yellow}}>
-        
-          </View>
+        <Menu />
         {/* Design Your Cake */}
           <View style={{width:styles.page.width,height:500,backgroundColor:colors.pink, justifyContent:'center', gap:40, padding:40  }}>
             <Text style={{fontSize:40, fontWeight:'bold',textAlign:'center' }}>Order</Text>
