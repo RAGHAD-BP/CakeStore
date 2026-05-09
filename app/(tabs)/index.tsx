@@ -4,6 +4,7 @@ import { useState } from 'react';
 import NavTop from '@/components/NavTop';
 import Menu from '@/app/Menu';
 import About from '@/app/about';
+import InstaLogo from '@/components/instaLogo';
 
 export default function App() {
   const[ isLoading, setIsLoading] = useState(true)
@@ -22,8 +23,8 @@ export default function App() {
               { <ActivityIndicator style={{ alignItems:'center'}} size="large" color={colors.darkPink}  animating={isLoading} />  }
           </View>
         {/* social media and another things */}
-        <View style={{width:styles.page.width,height:250,backgroundColor:colors.darkPink}}>
-
+        <View style={{width:styles.page.width,height:100,backgroundColor:colors.darkPink, justifyContent:'center', alignItems:'flex-start',padding:20, gap:20}}>
+          <InstaLogo width="30" height="30" />
         </View>
 
       </ScrollView>
@@ -31,6 +32,7 @@ export default function App() {
     </View>
   );
 }
+
 
 const styles = StyleSheet.create({
    page: {
