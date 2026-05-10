@@ -5,6 +5,7 @@ import NavTop from '@/components/NavTop';
 import Menu from '@/app/Menu';
 import About from '@/app/about';
 import InstaLogo from '@/components/instaLogo';
+import Order from '@/app/order';
 
 export default function App() {
   const[ isLoading, setIsLoading] = useState(true)
@@ -26,7 +27,6 @@ export default function App() {
         <View style={{width:styles.page.width,height:100,backgroundColor:colors.darkPink, justifyContent:'center', alignItems:'flex-start',padding:20, gap:20}}>
           <InstaLogo width="30" height="30" />
         </View>
-
       </ScrollView>
 
     </View>
