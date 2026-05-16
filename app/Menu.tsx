@@ -19,7 +19,7 @@ function Menu() {
               {/*هنا نطبع كل عناصر الاوبجيت   */}
               {menu[key]?.map((item, i) => (
                 <Text key={i} style={style.normalText}>
-                  {item.name} - ${item.price}
+                  {item.name} - ⃁{item.price}
                 </Text>
               ))}
             </View>   
