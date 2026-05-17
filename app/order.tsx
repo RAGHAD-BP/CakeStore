@@ -3,11 +3,23 @@ import { useState } from 'react';
 
 function Order() {
     const [address, setAddress] = useState("");
-    const [errors,setErrors] =useState({});
-    const validateForm =()=>{
+    const [errors,setErrors] =useState<{address?: String;}>({});
+    const [successOrd,setSuccessOrd] = useState("");
+
+
+    const validateAddress=()=>{
         let errors: {[Key: string]: string}={};
         if (!address){
-            errors.address = "Address Url is required"
+             errors.address = "Address Url is required"
+         }
+        if(Object.keys(errors).length> 0){
+            setErrors(errors)
+            setSuccessOrd("");
+            return false
+        }else{
+            setErrors({})
+            setSuccessOrd("You have Create an order")
+            return true;
         }
     }
 
@@ -27,7 +39,13 @@ function Order() {
             <View style={style.type}>Flavor of cake</View>
             <Text style={style.type}>Address:</Text>
             <TextInput placeholder="url address" style={style.TextInput} value={address} onChangeText={setAddress}/>
-            <Text style={style.sendButton}>Send</Text>
+            {
+                errors.address && <Text style={{color:"red"}}>{errors.address}</Text>
+            }
+            <Text style={style.sendButton} onPress={validateAddress}>Send</Text>
+            {
+                successOrd && <Text style={{color:"green", fontWeight:'bold'}}>{successOrd}</Text>
+            }
         </View>
     );
 }
@@ -77,6 +95,7 @@ const style = StyleSheet.create({
         alignItems:"center",
         justifyContent:'center',
         padding:10,
+        outlineWidth:30,
     }
 
 });
