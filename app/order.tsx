@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Image ,TextInput } from 'react-native';
+import { View, Text, StyleSheet, Image ,TextInput, ScrollView } from 'react-native';
 import { useState } from 'react';
 
 function Order() {
@@ -27,6 +27,7 @@ function Order() {
         <View style={style.Page}>
             <Text style={style.title}>Order Page</Text>
             <View style={style.type}>Type of cake:
+                <ScrollView style={style.scrollOption} horizontal>
                 <Image style={style.Value} source={{
                     uri: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA3MiA3MiI+Cgk8cGF0aCBkPSJNMCAwaDcydjcySDB6IiBmaWxsPSJub25lIiAvPgoJPHBhdGggZmlsbD0iIzdhNjQ0OSIgZD0iTTUgMTdoNjJ2MzhINXoiIC8+Cgk8cGF0aCBmaWxsPSJub25lIiBzdHJva2U9IiMwMDAiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIwIiBkPSJNNSAxN2g2MnYzOEg1eiIgLz4KPC9zdmc+Cg=="
                 }}
@@ -34,6 +35,9 @@ function Order() {
                 <View style={style.Value}>Vanilla</View>
                 <View style={style.Value}>Red Velvet</View>
                 <View style={style.Value}>Strawberry</View>
+                <View style={style.Value}>Vanilla</View>
+
+                </ScrollView>
             </View>
             <View style={style.type}>Size of cake</View>
             <View style={style.type}>Flavor of cake</View>
@@ -52,6 +56,7 @@ function Order() {
 const style = StyleSheet.create({
     Page: {
         width: '100%',
+        height: '100%',
         padding: 5,
         gap: 20,
         backgroundColor: '#ffedf5',
@@ -82,11 +87,12 @@ const style = StyleSheet.create({
         backgroundColor: '#E195AB',
         borderRadius: 5,
         color: 'white',
-        width: 80,
-        height: 60,
+        minWidth:70,
+        height: 70,
         justifyContent: 'center',
         alignItems: 'center',
         padding: 10,
+        margin:3,
     },
     TextInput:{
         fontSize:15,
@@ -96,7 +102,11 @@ const style = StyleSheet.create({
         justifyContent:'center',
         padding:10,
         outlineWidth:30,
-    }
+    },
+    scrollOption:{
+        height:90,
+        flexDirection:'row',
+   }
 
 });
 

@@ -1,14 +1,14 @@
 import { Button, StatusBar, Text, View, ActivityIndicator, StyleSheet, Pressable, ScrollView } from 'react-native';
 import { Image } from 'expo-image';
-import { useState } from 'react';
 import NavTop from '@/components/NavTop';
 import Menu from '@/app/Menu';
 import About from '@/app/about';
 import InstaLogo from '@/components/instaLogo';
-import Order from '@/app/order';
+import { useRouter } from 'expo-router';
 
 export default function App() {
-  const [isLoading, setIsLoading] = useState(true)
+  const router = useRouter();
+
   return (
     <View style={{ flex: 1 }}>
       {/* <StatusBar barStyle={'default'}/>   */}
@@ -18,18 +18,15 @@ export default function App() {
         {/* Menu */}
         <Menu />
         {/* Design Your Cake */}
-        <View style={{ width: styles.page.width, height: 1000, backgroundColor: colors.pink, justifyContent: 'center', gap: 40, padding: 40 }}>
+        <View style={{ width: styles.page.width, height: 500, backgroundColor: colors.pink, justifyContent: 'center', gap: 40, padding: 40 }}>
           <Text style={{ fontSize: 40, fontWeight: 'bold', textAlign: 'center' }}>Order</Text>
-          <Text onPress={() => setIsLoading(!isLoading)} style={styles.Button} >Start</Text>
-          {<ActivityIndicator style={{ alignItems: 'center' }} size="large" color={colors.darkPink} animating={isLoading} />}
-          <Order />
+          <Text onPress={() => router.push('/order')} style={styles.Button} >Start</Text>
         </View>
         {/* social media and another things */}
         <View style={{ width: styles.page.width, height: 100, backgroundColor: colors.darkPink, justifyContent: 'center', alignItems: 'flex-start', padding: 20, gap: 20 }}>
           <InstaLogo width="30" height="30" />
         </View>
       </ScrollView>
-
     </View>
   );
 }
